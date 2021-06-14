@@ -26,4 +26,4 @@ class BmsStreaming():
 if __name__ == '__main__':
     stop = int(input('Enter Total Number of Data Sample Required:'))
     bms = BmsStreaming()
-    bms.bms_send_and_logging(int(10))
+    bms.bms_send_and_logging(int(15))
