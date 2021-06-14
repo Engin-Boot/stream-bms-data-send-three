@@ -8,9 +8,7 @@
 
 
 TEST_CASE("Reding input from sender") {
-	std::string input;
-	float sum = 0;
-	int countForParameter = 0;
+	std::string input;;
 	ReadingData data;
 	while (std::getline(std::cin, input))
 	{
@@ -20,19 +18,16 @@ TEST_CASE("Reding input from sender") {
 		std::regex reg("-?(([1-9]\\d*\\.\\d*)|(0\\.\\d*[1-9]\\d*))");
 		const std::sregex_iterator end;
 		for (std::sregex_iterator iter(cbegin(input), std::cend(input), reg); iter != end; ++iter) {
-			countForParameter++;
-			float num_float = std::stof(iter->str());
 
-			if (countForParameter == 1)
-				data.capturedtemperature.push_back(num_float);
-			if (countForParameter == 2)
-				data.capturedSoc.push_back(num_float);
-			if (countForParameter == 3)
-				data.capturedChargingRate.push_back(num_float);
+			float num_float = std::stof(iter->str());
+			data.temp.push_back(num_float);
 		}
-		countForParameter = 0;
-		
+		data.readingData.push_back(data.temp);
+		data.temp.clear();
 	}
+	/*------------------------------separate data------------------------------------*/
+	data.seperateData(data.readingData);
+	
 	/*------------------------------capturedtemperature------------------------------*/
 	assert(data.calculation(data.capturedtemperature) == true);
 	assert(data.ToConsole(data.capturedData, "capturedtemperature") == true);

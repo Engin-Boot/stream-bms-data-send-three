@@ -14,9 +14,11 @@ public:
 	std::vector<float> capturedSoc;
 	std::vector<float> capturedChargingRate;
 	std::vector<float> capturedData;
-
+	std::vector<float> temp;
+	std::vector < std::vector < float >> readingData;
 	bool calculation(const std::vector<float>& temp);
-	bool ReadingData::refresh();
+	bool refresh();
 	bool ToConsole(const std::vector<float>& DataToConsole, std::string dataType);
-	
+	bool seperateData(const std::vector<std::vector<float>>& listData);
+
 };
