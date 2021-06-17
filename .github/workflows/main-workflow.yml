@@ -12,6 +12,8 @@ jobs:
     steps:
       - id: step1
         run: echo "::set-output name=test::hello"
+      - name: my
+        run: echo "::set-output name=test::virendra"
       - id: step2
         run: echo "::set-output name=test::world"
   job2:
