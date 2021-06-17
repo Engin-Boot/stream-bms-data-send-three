@@ -6,7 +6,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+    steps:
+    - uses: actions/checkout@v2
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
@@ -28,9 +29,7 @@ jobs:
         coverage run --branch sender-executable bms_data_test.py
         coverage html
         
-    steps:
-    - uses: actions/checkout@v2
-
+    
     - name: install coverage tool
       run: sudo apt-get install -y gcovr
       
