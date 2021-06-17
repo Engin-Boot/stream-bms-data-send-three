@@ -1,5 +1,5 @@
 
-name: receiverInput.txt
+name: Update receiverInput.txt
 
 on: [push, pull_request]
 
