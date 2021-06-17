@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
    job1:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-latest    
       outputs:
         output1: ${{ steps.step1.outputs.test }}
       steps:
@@ -35,27 +35,27 @@ jobs:
             path: ./htmlcov
             retention-days: 25
    job2:
-      needs: job1
-      runs-on: ubuntu-latest
+         needs: job1
+         runs-on: ubuntu-latest
 
-      steps:
-      - uses: actions/checkout@v2
+         steps:
+         - uses: actions/checkout@v2
 
-      - name: install coverage tool
-        run: sudo apt-get install -y gcovr
+         - name: install coverage tool
+           run: sudo apt-get install -y gcovr
 
-      - name: build
-        run: ${{needs.job1.outputs.output1}} | g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
+         - name: build
+           run: ${{needs.job1.outputs.output1}} | g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
 
-      - name: run
-        run: ./testchecker
+         - name: run
+           run: ./testchecker
 
-      - name: collect coverage
-        run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html
+         - name: collect coverage
+           run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html
 
-      - name: create coverage artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: ./*.html
-          retention-days: 1
+         - name: create coverage artifact
+           uses: actions/upload-artifact@v2
+           with:
+             name: coverage
+             path: ./*.html
+             retention-days: 1
