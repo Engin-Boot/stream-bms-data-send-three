@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   
-   build:
+   job1:
       runs-on: ubuntu-latest    
       outputs:
         output1: ${{ steps.step1.outputs.test }}
@@ -12,7 +12,6 @@ jobs:
         - uses: actions/checkout@v2
         - name: Set up Python 3.9
           uses: actions/setup-python@v2
-        - id: step1
           with:
             python-version: '3.9'
         - name: Install dependencies
@@ -37,7 +36,7 @@ jobs:
             path: ./htmlcov
             retention-days: 25
    job2:
-         needs: build
+         needs: job1
          runs-on: ubuntu-latest
 
          steps:
