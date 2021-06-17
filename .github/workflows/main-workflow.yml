@@ -10,7 +10,8 @@ jobs:
         output1: ${{ steps.step1.outputs.test }}
       steps:
         - uses: actions/checkout@v2
-        - uses: actions/setup-python@v2
+        - name: Set up Python 3.9
+          uses: actions/setup-python@v2
         - id: step1
           with:
             python-version: '3.9'
