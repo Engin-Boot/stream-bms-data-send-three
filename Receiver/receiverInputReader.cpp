@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
-#include"Receiver/catch.hpp"
-#include "Receiver/CaptureData.h"
+#include "catch.hpp"
+#include "CaptureData.h"
 #include <string>
 #include<iostream>
 #include<vector>
