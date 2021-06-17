@@ -26,4 +26,4 @@ jobs:
         # exit-zero treats all errors as warnings.
         flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
     - name: Run
-      run: python bmsStreaming.py > receiverInput.txt
+      run: python bmsStreaming.py
