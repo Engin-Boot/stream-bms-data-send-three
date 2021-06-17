@@ -1,4 +1,4 @@
-name: Build and Run
+name:  Update output.txt
 
 on: [push, pull_request]
 
