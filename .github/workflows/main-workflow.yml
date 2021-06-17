@@ -28,7 +28,7 @@ jobs:
           coverage run --branch bmsStreaming.py
           coverage html
       - name: Upload coverage
-        uses: actions/upload@v2
+        uses: actions/upload-artifact@v2
         with:
           name: coverage
           path: ./txt
