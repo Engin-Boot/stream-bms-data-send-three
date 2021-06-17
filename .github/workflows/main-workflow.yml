@@ -26,8 +26,8 @@ jobs:
             # exit-zero treats all errors as warnings.
             flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
         - id: step1 
-          run: run --branch bmsStreaming.py
-      
+          run: --branch bmsStreaming.py
+    
    job2:
          needs: job1
          runs-on: ubuntu-latest
