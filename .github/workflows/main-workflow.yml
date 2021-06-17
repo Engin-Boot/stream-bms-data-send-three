@@ -3,7 +3,8 @@ name: Build and Run
 on: [push, pull_request]
 
 jobs:
-   job1:
+  
+   build:
       runs-on: ubuntu-latest    
       outputs:
         output1: ${{ steps.step1.outputs.test }}
@@ -35,7 +36,7 @@ jobs:
             path: ./htmlcov
             retention-days: 25
    job2:
-         needs: job1
+         needs: build
          runs-on: ubuntu-latest
 
          steps:
