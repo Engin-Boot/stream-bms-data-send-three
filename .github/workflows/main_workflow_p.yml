@@ -34,7 +34,7 @@ jobs:
       run: sudo apt-get install -y gcovr
       
     - name: run pipe
-      run: ./sender-executable | g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o sender-executable ReceiverInputReader/*.cpp
+      run: ./sender-executable | g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
 
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html
