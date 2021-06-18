@@ -1,7 +1,7 @@
-#include "CaptureData.h "
+#include"CaptureData.h"
 #include<algorithm>
 #include<iostream>
-#include "CaptureData.h"
+#include"CaptureData.h"
 
 bool ReadingData::seperateData(const std::vector < std::vector < float >> & listData) {
 	for (const auto & sublist : listData) {
