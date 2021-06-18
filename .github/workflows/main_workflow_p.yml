@@ -31,8 +31,12 @@ jobs:
         coverage run --branch bmsStreaming.py > Receiver/output.txt
         coverage html
         
-    - name: output file
-      run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+    - name: Create env file
+      run: |
+          touch .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.API_KEY }} >> .env
+          cat .env
       
     - name: run pipe
       run: coverage run --branch bmsStreaming.py | g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o  Receiver/*.cpp
