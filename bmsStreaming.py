@@ -22,7 +22,7 @@ class BmsStreaming():
         
         json_data = json.dumps(data)
         print(json_data)
-        p = Popen(['./receiver-executable', 'json_data'])
+        p = Popen(['/receiver-executable', 'json_data'])
         return 'OK'
 
 if __name__ == '__main__':
