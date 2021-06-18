@@ -25,7 +25,7 @@ class BmsStreaming():
         json_data = json.dumps(data)
         print(json_data)
         #p = Popen(['receiver-executable', 'json_data'])
-        bin = 'gcc -o ' + json_data + '.cpp'
+        bin = 'gcc -o ' + 'receiverE' + 'Receiver/*.cpp'
         print(bin)
         os.system(bin)
         return 'OK'
