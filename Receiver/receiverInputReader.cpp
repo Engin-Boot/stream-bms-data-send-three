@@ -1,7 +1,7 @@
 //#define CATCH_CONFIG_MAIN
 #include"catch.hpp"
-#include "CaptureData.h"
-#include <string>
+#include"CaptureData.h"
+#include<string>
 #include<iostream>
 #include<vector>
 #include<regex>
