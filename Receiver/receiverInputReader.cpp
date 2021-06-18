@@ -1,20 +1,24 @@
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+//#define CATCH_CONFIG_MAIN
+#include"catch.hpp"
 #include "CaptureData.h"
 #include <string>
 #include<iostream>
 #include<vector>
 #include<regex>
 
-
-TEST_CASE("Reding input from sender") {
+int main(int argc, char** argv)
+{
 	std::string input;;
 	ReadingData data;
-	while (std::getline(std::cin, input))
-	{
-		if (input.empty())
-			break;
-
+	std::cout << "You have entered " << argc
+		<< " arguments:" << "\n";
+	for (int i = 0; i < argc; ++i){
+		std::cout << argv[i] << "\n";
+	//while (std::getline(std::cin, input))
+	//{
+		//if (input.empty())
+		//	break;
+		input = argv[i];
 		std::regex reg("-?(([1-9]\\d*\\.\\d*)|(0\\.\\d*[1-9]\\d*))");
 		const std::sregex_iterator end;
 		for (std::sregex_iterator iter(cbegin(input), std::cend(input), reg); iter != end; ++iter) {
@@ -25,6 +29,8 @@ TEST_CASE("Reding input from sender") {
 		data.readingData.push_back(data.temp);
 		data.temp.clear();
 	}
+	
+	
 	/*------------------------------separate data------------------------------------*/
 	data.seperateData(data.readingData);
 	
@@ -42,4 +48,8 @@ TEST_CASE("Reding input from sender") {
 	assert(data.calculation(data.capturedChargingRate) == true);
 	assert(data.ToConsole(data.capturedData, "capturedSoc") == true);
 	assert(data.refresh() == true);
+	
+	system("pause");
+
+	return 0;
 }
