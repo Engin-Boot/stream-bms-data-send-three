@@ -44,5 +44,4 @@ TEST_CASE("Reding input from sender") {
 	assert(data.ToConsole(data.capturedData, "capturedSoc") == true);
 	assert(data.refresh() == true);
 	
-	system("pause");
 }
