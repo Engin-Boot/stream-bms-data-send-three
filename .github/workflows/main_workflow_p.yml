@@ -38,7 +38,7 @@ jobs:
           cat .env
       
     - name: build c++
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o receiver-executable Receiver/*.cpp
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o receiver-executable ./*.c* ./Tx/*.c
 
     - name: pipe output
       run:  coverage run --branch bmsStreaming.py | ./receiver-executable
