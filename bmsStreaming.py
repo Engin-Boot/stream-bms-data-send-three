@@ -2,6 +2,8 @@ from bmsDataGenerator import DataGenerator
 from bmsConstants import default_bms_param
 import json
 from subprocess import Popen
+import os
+import sys
 
 class BmsStreaming():
     def __init__(self, seed_value=None):
@@ -22,7 +24,10 @@ class BmsStreaming():
         
         json_data = json.dumps(data)
         print(json_data)
-        p = Popen(['/receiver-executable', 'json_data'])
+        #p = Popen(['receiver-executable', 'json_data'])
+        bin = 'gcc -o ' + json_data + '.cpp'
+        print(bin)
+        os.system(bin)
         return 'OK'
 
 if __name__ == '__main__':
